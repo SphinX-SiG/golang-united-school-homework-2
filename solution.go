@@ -8,5 +8,21 @@ package square
 // CalcSquare(10.0, SidesSquare)
 // CalcSquare(10.0, SidesCircle)
 
-func CalcSquare(sideLen float64, sidesNum #yourTypeNameHere#) float64 {
+import (
+	"math"
+)
+
+type SidesNum uint8
+
+func CalcSquare(sideLen float64, sidesNum SidesNum) float64 {
+	switch sidesNum {
+	case 0:
+		return 2 * math.Pi * math.Pow(sideLen, 2)
+	case 3:
+		return 0.5 * sideLen * sideLen * math.Sin(60.0)
+	case 4:
+		return math.Pow(sideLen, 2)
+	default:
+		return 0
+	}
 }
