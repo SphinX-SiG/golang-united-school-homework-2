@@ -12,9 +12,15 @@ import (
 	"math"
 )
 
-type SidesNum uint8
+type SidesType uint8
 
-func CalcSquare(sideLen float64, sidesNum SidesNum) float64 {
+const (
+	SidesTriangle SidesType = 3
+	SidesSquare   SidesType = 4
+	SidesCircle   SidesType = 0
+)
+
+func CalcSquare(sideLen float64, sidesNum SidesType) float64 {
 	switch sidesNum {
 	case 0:
 		return 2 * math.Pi * math.Pow(sideLen, 2)
